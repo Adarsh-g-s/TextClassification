@@ -78,3 +78,9 @@ Although linear SVM’s mean balanced accuracy is close to Random forest on yard
 overall random forest is the algorithm of choice to make predictions on unseen data as it
 wins on both yardstick 1 and yardstick 2. Although it was not attempted, it would be
 interesting to see the average performance of classifiers after parameter tuning.
+
+### Text classification using Doc2Vec
+
+Doc2Vec builds semantic representation of documents in the latent space. Gensim has been used to generate the tagged representation of the documents.  
+The tagged training documents have been further used to build a doc2vec model and infer vector is used to represent the train and test documents, before training the machine learning (Random Forest) model.
+The obtained predictions on the test set are stored in the "test_predicted_doc2vec.csv" file.
