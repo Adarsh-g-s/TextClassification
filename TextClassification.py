@@ -1,8 +1,8 @@
 import pandas as pd
 
 #Read the pre-processed csv files
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\Task\PreProcess_train.csv", sep='|')
-testDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\Task\PreProcess_test.csv", sep='|', header=None)
+trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_train.csv", sep='|')
+testDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_test.csv", sep='|', header=None)
 
 'Read text & class label of training data'
 X_train, y_train_label = trainDataFrame['title'], trainDataFrame['class']
@@ -122,7 +122,7 @@ y_test_predicted = pd.Series(y_test_predicted)
 print()
 
 #Write it back to the data frame and dump it to the original csv file
-originalTestDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\nlp_model_task\nlp_model_task\test.csv", sep='|', header=None)
+originalTestDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\Dataset\test.csv", sep='|', header=None)
 originalTestDataFrame['predicted_class'] = y_test_predicted
 
 #Drop column 0 as it has indexes

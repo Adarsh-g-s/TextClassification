@@ -4,7 +4,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\nlp_model_task\nlp_model_task\train.csv", sep='|')
+trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\Dataset\train.csv", sep='|')
 
 print()
 

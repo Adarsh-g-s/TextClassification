@@ -1,7 +1,7 @@
 import pandas as pd
 
 #Read the pre-processed train csv file
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\Task\PreProcess_train.csv", sep='|')
+trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_train.csv", sep='|')
 
 'Read text & class label of pre-processed training data'
 X_train, y_train_label = trainDataFrame['title'], trainDataFrame['class']
