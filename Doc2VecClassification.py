@@ -7,8 +7,8 @@ import pandas as pd
 
 '1. Load the pre-split dataset'
 #Read the pre-processed csv files
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_train.csv", sep='|')
-testDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_test.csv", sep='|', header=None)
+trainDataFrame = pd.read_csv(r"./Dataset/PreProcess/PreProcess_train.csv", sep='|')
+testDataFrame = pd.read_csv(r"./Dataset/PreProcess/PreProcess_test.csv", sep='|', header=None)
 
 'Read text & class label of training data'
 X_train, y_train_label = trainDataFrame['title'], trainDataFrame['class']
@@ -91,9 +91,9 @@ y_pred = randomForest.predict(X_test_doc2Vec)
 #
 # print(classification_report(y_classLabel_test, y_pred))
 
-originalTestDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\Dataset\test.csv", sep='|', header=None)
+originalTestDataFrame = pd.read_csv(r"./Dataset/test.csv", sep='|', header=None)
 originalTestDataFrame['predicted_class'] = y_pred
 
 #Drop column 0 as it has indexes
 originalTestDataFrame = originalTestDataFrame.drop(columns=[0])
-originalTestDataFrame.to_csv('test_predicted_doc2vec.csv', index=False, sep='|', header=None)
+originalTestDataFrame.to_csv(r"./Predictions/test_predicted_doc2vec.csv", index=False, sep='|', header=None)

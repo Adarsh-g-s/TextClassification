@@ -3,8 +3,11 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\Dataset\train.csv", sep='|')
+trainDataFrame = pd.read_csv(r"./Dataset/train.csv", sep='|')
+
+print(os.getcwd())
 
 print()
 
@@ -16,7 +19,8 @@ def classDistribution(trainDataFrame):
     plt.xlabel("Class")
     plt.ylabel("Frequency")
     plt.suptitle("Class distribution")
-    plt.savefig("Class Distribution.png")
+    plt.savefig("./EDA/Class Distribution.png")
+    # plt.savefig("Class Distribution.png")
     plt.show()
 
 classDistribution(trainDataFrame)

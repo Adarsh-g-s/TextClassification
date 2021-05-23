@@ -10,9 +10,7 @@ from nltk.stem import WordNetLemmatizer
 
 #Read the csv files
 trainDataFrame = pd.read_csv(r"./Dataset/train.csv", sep='|')
-# trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\nlp_model_task\nlp_model_task\train.csv", sep='|')
 testDataFrame = pd.read_csv(r"./Dataset/test.csv", sep='|', header=None)
-# testDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\nlp_model_task\nlp_model_task\test.csv", sep='|', header=None)
 
 '1. Perform pre-processing of the text in the data frame'
 def removeSpecialCharsAndLowerCase(instance):
@@ -72,14 +70,16 @@ lemmatizer = WordNetLemmatizer()
 flag=False
 trainDataFrame['title'] = trainDataFrame.apply(performPreProcess, axis=1)
 #Saving the results to a csv file as backup
-trainDataFrame.to_csv('PreProcess_train.csv', index=False, sep='|')
+trainDataFrame.to_csv(r"./Dataset/PreProcess/PreProcess_train.csv", index=False, sep='|')
+# trainDataFrame.to_csv('PreProcess_train.csv', index=False, sep='|')
 
 'Perform pre-processing on each row of the test data frame'
 #Test dataframe does not have a header
 flag=True
 testDataFrame = testDataFrame.apply(performPreProcess, axis=1)
 #Saving the results to a csv file as backup
-testDataFrame.to_csv('PreProcess_test.csv', index=False, sep='|', header=None)
+testDataFrame.to_csv(r"./Dataset/PreProcess/PreProcess_test.csv", index=False, sep='|', header=None)
+# testDataFrame.to_csv('PreProcess_test.csv', index=False, sep='|', header=None)
 
 
 

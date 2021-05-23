@@ -1,7 +1,8 @@
 import pandas as pd
 
 #Read the pre-processed train csv file
-trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_train.csv", sep='|')
+trainDataFrame = pd.read_csv(r"./Dataset/PreProcess/PreProcess_train.csv", sep='|')
+# trainDataFrame = pd.read_csv(r"C:\Masters\DKE\Job\Scorable\TextClassification\PreProcess_train.csv", sep='|')
 
 'Read text & class label of pre-processed training data'
 X_train, y_train_label = trainDataFrame['title'], trainDataFrame['class']
@@ -98,7 +99,8 @@ def baselineCV(X_train_CV_FeaturesFS, y_train_label_CV, X_val_CV_FeaturesFS, y_v
     print("Baseline Balanced Accuracy Score with FS-> ",balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV)*100)
     allBalAccuracyResults.append(balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV) * 100)
     # Save the model
-    joblib.dump(baseline,r"ModelsCV\baselineCV"+ str(foldIndex) +".pkl")
+    joblib.dump(baseline,r"./ModelsCV/baselineCV"+ str(foldIndex) +".pkl")
+    # joblib.dump(baseline,r"ModelsCV\baselineCV"+ str(foldIndex) +".pkl")
 
 #Linear SVM CV
 def linearSVMCV(X_train_CV_FeaturesFS,y_train_label_CV,X_val_CV_FeaturesFS,y_val_label_CV,foldIndex):
@@ -116,7 +118,8 @@ def linearSVMCV(X_train_CV_FeaturesFS,y_train_label_CV,X_val_CV_FeaturesFS,y_val
           balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV) * 100)
     allBalAccuracyResults.append(balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV) * 100)
     # Save the model
-    joblib.dump(linearSVM,r"ModelsCV\LinearSVMCV"+ str(foldIndex) +".pkl")
+    joblib.dump(linearSVM,r"./ModelsCV/LinearSVMCV"+ str(foldIndex) +".pkl")
+    # joblib.dump(linearSVM,r"ModelsCV\LinearSVMCV"+ str(foldIndex) +".pkl")
 
 #Random Forest CV
 def randomForestCV(X_train_CV_FeaturesFS,y_train_label_CV,X_val_CV_FeaturesFS,y_val_label_CV,foldIndex):
@@ -132,7 +135,8 @@ def randomForestCV(X_train_CV_FeaturesFS,y_train_label_CV,X_val_CV_FeaturesFS,y_
     print("Random Forest Balanced Accuracy Score with FS-> ",balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV)*100)
     allBalAccuracyResults.append(balanced_accuracy_score(y_val_label_predicted_CV, y_val_label_CV)*100)
     # Save the model
-    joblib.dump(randomForest,r"ModelsCV\RandomForestCV"+ str(foldIndex) +".pkl")
+    joblib.dump(randomForest,r"./ModelsCV/RandomForestCV"+ str(foldIndex) +".pkl")
+    # joblib.dump(randomForest,r"ModelsCV\RandomForestCV"+ str(foldIndex) +".pkl")
 
 
 import matplotlib.pyplot as plt
@@ -159,7 +163,8 @@ def visualizeCVResults(allStdAccuracyResults, allBalAccuracyResults, classifierN
     for i, c in zip(indices, FoldNames):
         #To control spacing
         plt.text(-.6, i, c)
-    plt.savefig(r"ModelsCV\\" +classifierName+".png")
+    plt.savefig(r"./ModelsCV/" +classifierName+".png")
+    # plt.savefig(r"ModelsCV\\" +classifierName+".png")
     plt.show()
 
 
